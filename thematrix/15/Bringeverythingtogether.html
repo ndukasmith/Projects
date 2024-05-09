@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nduka Odim - IT Professional</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="Bringeverythingtogether.css">
+  <!-- Your custom CSS (if needed) -->
+  <link rel="stylesheet" href="Bringeverythingtogether.css">
+</head>
+<body>
+  <header class="bg-light text-center py-4">
+    <h1>Nduka Odim</h1>
+    <h2>IT Professional</h2>
+  </header>
+  <main class="container my-4">
+    <section class="profile">
+      <h3>Profile</h3>
+      <p>A dynamic professional with a robust background in engineering and project management, seeking a role that will leverage my expertise in strategic planning, problem-solving, and innovation.</p>
+    </section>
+    <section class="experience">
+      <h3>Work Experience</h3>
+      <ul id="experience-list" class="list-group">
+        <!-- Data will be added dynamically using JavaScript -->
+      </ul>
+    </section>
+    <section class="skills">
+      <h3>Key Skills</h3>
+      <ul id="skills-list" class="list-group">
+        <!-- Data will be added dynamically using JavaScript -->
+      </ul>
+    </section>
+  </main>
+  <footer class="text-center py-3">
+    <p>&copy; 2024 Nduka Odim</p>
+  </footer>
+
+  <!-- Include Bootstrap JS (optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Example data (you can replace this with your own data)
+    const experienceData = ['Software Engineer', 'Project Manager', 'Systems Analyst'];
+    const skillsData = ['JavaScript', 'HTML/CSS', 'Problem Solving'];
+
+    // Function to add data to the list
+    function addDataToList(data, listId) {
+      const list = document.getElementById(listId);
+      data.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        listItem.classList.add('list-group-item'); // Add Bootstrap class
+        list.appendChild(listItem);
+      });
+    }
+
+    // Add data to the experience and skills lists
+    addDataToList(experienceData, 'experience-list');
+    addDataToList(skillsData, 'skills-list');
+  </script>
+</body>
+</html>

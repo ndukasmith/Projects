@@ -1,0 +1,30 @@
+<form id="signupForm">
+    <input type="text" id="firstName" placeholder="First Name" required>
+    <input type="text" id="lastName" placeholder="Last Name" required><br>
+    <input type="email" id="emailSignup" placeholder="Your Email" required>
+    <input type="email" id="reenterEmail" placeholder="Re-enter Email" required><br>
+    <input type="password" id="newPasswordSignup" placeholder="New Password" required><br>
+    
+    <label for="sex">I am:</label>
+    <select id="sex" required>
+        <option value="" disabled selected>Select Sex</option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+        <!-- Add more options as needed -->
+    </select><br>
+
+    <label for="birthday">Birthday:</label>
+    <select id="month" required>
+        <!-- Add month options here -->
+    </select>
+    <select id="day" required>
+        <!-- Add day options here -->
+    </select>
+    <select id="year" required>
+        <!-- Add year options here -->
+    </select><br>
+
+    <p>Why do I need to provide my birthday?</p>
+
+    <button type="submit">Sign Up</button>
+</form>
