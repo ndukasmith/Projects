@@ -1,0 +1,120 @@
+islam
+
+Gabor
+
+matrix v
+
+% nduka
+
+P9 advanced-js-challenge
+
+Hanna Hsoon
+
+Jabra Lobos
+
+Current File v
+
+Project v
+
+[ matrix D: matrix
+frontend_frameworks
+matrix-frontend-challenge-master
+matrix-studying
+v challenge-solution
+<> index.html
+O questions.json
+Js quiz.js
+3 style.css
+M4 README.md
+> vanilla_js
+> web_fundamentals
+d External Libraries
+> Scratches and Consoles
+
+>
+
+14
+
+20
+21
+22
+23
+24
+25
+
+let quizApp = () : void => {
+const loadQuizData = async () : Promise<void>
+} catch (error) {
+console. log('Error loading quiz data:', error);
+
+=> {
+
+26
+27
+28
+
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+45
+
+44
+
+65
+
+Show usages new*
+let showQuestion = question => {
+optionsContainer.style. display = 'block';
+questionContainer.style.display = 'block';
+
+optionsContainer. innerHTML ='';
+questionContainer. textContent = question.text;
+resultContainer.innerHTML =";
+
+question. variants. forEach(answer => {
+const button : HTMLButtonElement = document.createElement( tagName: 'button');
+button. textContent = answer:
+button.classList.add('answer-button');
+button.addEventListener( type: 'click', listener: (event : MouseEvent ) : void => {
+event.preventDefault();
+
+selectAnswer(answer);
+
+optionsContainer. appendChild(button);
+
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+
+Show usages new
+let selectAnswer = (answer, clickedButton) : void => {
+const buttons : Element[] = Array.from(document.getElementsByClassName( classNames: 'answer-button'));
+let previousScore : number = scoreCounter;
+
+buttons. forEach(button : Element => {
+if (button. textContent === answer) {
+resultContainer. textContent = 'correct! your score is: ${scoreCounter} / ${quizData. length} ;
+button.disabled = true;
+} else {
+resultContainer. textContent = wrong!
+
+your score is: ${previousScore} / ${quizData.length} ;

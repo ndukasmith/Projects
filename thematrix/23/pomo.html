@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pomodoro Clock</title>
+</head>
+<body>
+<div id="pomodoro-clock">
+<!-- Display for the Pomodoro timer -->
+<div id="timer-display">25:00</div>
+
+<!-- Buttons for controlling the Pomodoro timer -->
+<button id="start-button" onclick="startPomodoro()">Start</button>
+<button id="reset-button" onclick="resetPomodoro()">Reset</button>
+<input type="number" id="duration-input" placeholder="Enter minutes" min="1">
+<button id="customize-button" onclick="customizePomodoro(document.getElementById('duration-input').value)">Customize</button>
+</div>
+
+<!-- Link to the JavaScript file -->
+<script src="pomo.js"></script>
+</body>
+</html>
