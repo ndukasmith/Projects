@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX Final Project</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>AJAX Final Project</h1>
+
+  <div id="content">
+    <h2>Select a Category</h2>
+    <select id="category-select">
+      <option value="">Select a category</option>
+      <option value="books">Books</option>
+      <option value="movies">Movies</option>
+      <option value="music">Music</option>
+    </select>
+
+    <div id="item-list">
+      <!-- Dynamic content will be loaded here -->
+    </div>
+  </div>
+
+  <script>
+    // Function to fetch and display items based on selected category
+    function fetchItems() {
+      var selectedCategory = $('#category-select').val();
+      if (selectedCategory) {
+        $.ajax({
+          url: 'data/' + selectedCategory + '.json',
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            var itemList = $('#item-list');
+            itemList.empty();
+
+            $.each(data, function(index, item) {
+              var itemElement = $('<div>').addClass('item');
+              itemElement.append($('<h3>').text(item.title));
+              itemElement.append($('<p>').text(item.description));
+              itemList.append(itemElement);
+            });
+          },
+          error: function() {
+            $('#item-list').html('<p>Error loading items.</p>');
+          }
+        });
+      } else {
+        $('#item-list').html('');
+      }
+    }
+
+    // Attach event listener to category select
+    $('#category-select').on('change', fetchItems);
+
+    // Initial fetch of items
+    fetchItems();
+  </script>
+
+  <style>
+    .item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Assignment 2 - from Turing to Gates</title>
+</head>
+<body>
+    <header id="container">
+        <h1>Assignment 2 - from Turing to Gates</h1>
+    </header>
+
+    <div style="text-align: center;">
+        <img src="./images/1a.jpg" id="img1" width='800px';>
+        <img src="./images/2a.jpg" id="img2" width='800px'>
+        <img src="./images/3a.jpg" id="img3" width='800px'>
+    </div>
+
+    <script>
+         $(document).ready(function(){
+            
+            $('#img1').click(function(){
+                $(this).attr("src","./images/1b.jpg")
+            })
+            $('#img2').click(function(){
+                $(this).attr("src","./images/2b.jpg")
+            })
+            $('#img3').click(function(){
+                $(this).attr("src","./images/3b.jpg")
+            })
+         });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tenor API AJAX Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Search for GIFs</h1>
+  <input type="text" id="search-input" placeholder="Enter a search term">
+  <button id="search-button">Search</button>
+  <div id="gif-container"></div>
+
+  <script>
+    $(document).ready(function() {
+      $('#search-button').click(function() {
+        var searchTerm = $('#search-input').val();
+        searchGIFs(searchTerm);
+      });
+    });
+
+    function searchGIFs(searchTerm) {
+      var apiKey = 'YOUR_TENOR_API_KEY_HERE';
+      var url = 'https://api.tenor.com/v1/search?q=' + encodeURIComponent(searchTerm) + '&key=' + apiKey + '&limit=10';
+
+      $.ajax({
+        url: url,
+        method: 'GET',
+        dataType: 'json',
+        success: function(response) {
+          displayGIFs(response.results);
+        },
+        error: function(xhr, status, error) {
+          console.error('Error searching for GIFs: ' + error);
+        }
+      });
+    }
+
+    function displayGIFs(gifs) {
+      var gifContainer = $('#gif-container');
+      gifContainer.empty();
+
+      $.each(gifs, function(index, gif) {
+        var gifImage = $('<img>').attr('src', gif.media[0].gif.url).css('width', '200px');
+        gifContainer.append(gifImage);
+      });
+    }
+  </script>
+</body>
+</html>

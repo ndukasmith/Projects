@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Countdown Timer</h1>
+  <p id="timer">60</p>
+  <button id="start-btn">Start</button>
+
+  <script>
+    $(document).ready(function() {
+      var timerInterval;
+      var timerSeconds = 60;
+
+      function startTimer() {
+        timerInterval = setInterval(function() {
+          timerSeconds--;
+          $("#timer").text(timerSeconds);
+
+          if (timerSeconds === 0) {
+            clearInterval(timerInterval);
+            alert("Time's up!");
+          }
+        }, 1000);
+      }
+
+      $("#start-btn").click(function() {
+        startTimer();
+        $(this).prop("disabled", true);
+      });
+    });
+  </script>
+</body>
+</html>
