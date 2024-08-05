@@ -4,7 +4,8 @@ async function fetchText() {
     resultDiv.textContent = 'Loading...';
 
     try {
-        const text = await fetchAndExtractText(url);
+        let text = await fetchAndExtractText(url);
+        text = filterText(text); // Apply the junk sweeper
         resultDiv.textContent = text;
     } catch (error) {
         resultDiv.textContent = 'Error fetching the text. Please check the URL and try again.';
@@ -39,4 +40,16 @@ async function fetchAndExtractText(url, visited = new Set()) {
         console.error('Error fetching URL:', url, error);
         return '';
     }
+}
+
+function filterText(text) {
+    const unwantedWords = ['junk', 'unwanted', 'spam']; // Add words or phrases to filter out
+    let filteredText = text;
+
+    unwantedWords.forEach(word => {
+        const regex = new RegExp(`\\b${word}\\b`, 'gi');
+        filteredText = filteredText.replace(regex, '');
+    });
+
+    return filteredText;
 }
